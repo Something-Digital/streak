@@ -16,11 +16,13 @@ class Todos with ChangeNotifier {
   void addTodo({
     String title,
     String description,
+    int streak,
   }) {
     final newTodo = Todo(
       id: DateTime.now().toString(),
       title: title,
       description: description,
+      streak: streak,
     );
     _items.add(newTodo);
     notifyListeners();
@@ -30,6 +32,7 @@ class Todos with ChangeNotifier {
         'id': newTodo.id,
         'title': newTodo.title,
         'description': newTodo.description,
+        'streak': newTodo.streak,
       },
     );
   }
@@ -42,6 +45,7 @@ class Todos with ChangeNotifier {
             id: todo['id'],
             title: todo['title'],
             description: todo['description'],
+            streak: todo['streak'],
           ),
         )
         .toList();

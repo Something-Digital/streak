@@ -11,7 +11,7 @@ class DBHelper {
       path.join(dbPath, '$_DB_TABLE.db'),
       onCreate: (db, version) {
         return db.execute(
-          'CREATE TABLE $_DB_TABLE(id TEXT PRIMARY KEY, title TEXT, description TEXT)',
+          'CREATE TABLE $_DB_TABLE(id TEXT PRIMARY KEY, title TEXT, description TEXT, streak INTEGER)',
         );
       },
       version: 1,

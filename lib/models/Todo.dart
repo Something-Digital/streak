@@ -4,10 +4,12 @@ class Todo {
   final String id;
   final String title;
   final String description;
+  final int streak;
 
   Todo({
     @required this.id,
     @required this.title,
     this.description = '',
+    this.streak = 0,
   });
 }

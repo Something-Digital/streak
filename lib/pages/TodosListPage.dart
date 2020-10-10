@@ -36,7 +36,9 @@ class TodosListPage extends StatelessWidget {
                         itemCount: todos.items.length,
                         itemBuilder: (ctx, i) => ListTile(
                           leading: CircleAvatar(
-                            child: Text(todos.items[i].title),
+                            child: Text(todos.items[i].streak == null
+                                ? '0'
+                                : todos.items[i].streak.toString()),
                             // backgroundImage: FileImage(todos.items[i].image),
                           ),
                           title: Text(todos.items[i].title),
