@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-// import '../pages/AddPlacePage.dart';
+import '../pages/AddTodoPage.dart';
+
 import '../providers/Todos.dart';
 
 class TodosListPage extends StatelessWidget {
@@ -10,14 +11,14 @@ class TodosListPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Your todos'),
-        // actions: [
-        //   IconButton(
-        //     icon: Icon(Icons.add),
-        //     onPressed: () {
-        //       Navigator.of(context).pushNamed(AddPlacePage.routeName);
-        //     },
-        //   )
-        // ],
+        actions: [
+          IconButton(
+            icon: Icon(Icons.add),
+            onPressed: () {
+              Navigator.of(context).pushNamed(AddTodoPage.routeName);
+            },
+          )
+        ],
       ),
       body: FutureBuilder(
         future: Provider.of<Todos>(context, listen: false).fetchAndSetTodos(),

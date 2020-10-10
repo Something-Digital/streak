@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import './providers/Todos.dart';
 
 import './pages/TodosListPage.dart';
-// import './pages/AddTodoPage.dart';
+import './pages/AddTodoPage.dart';
 
 void main() => runApp(MyApp());
 
@@ -21,9 +21,9 @@ class MyApp extends StatelessWidget {
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         home: TodosListPage(),
-        // routes: {
-        //   AddTodoPage.routeName: (_) => AddTodoPage(),
-        // },
+        routes: {
+          AddTodoPage.routeName: (_) => AddTodoPage(),
+        },
       ),
     );
   }
