@@ -34,19 +34,37 @@ class TodosListPage extends StatelessWidget {
                     ? ch
                     : ListView.builder(
                         itemCount: todos.items.length,
-                        itemBuilder: (ctx, i) => ListTile(
-                          leading: CircleAvatar(
-                            child: Text(todos.items[i].streak == null
-                                ? '0'
-                                : todos.items[i].streak.toString()),
-                            // backgroundImage: FileImage(todos.items[i].image),
-                          ),
-                          title: Text(todos.items[i].title),
-                          subtitle: todos.items[i].description == ''
-                              ? null
-                              : Text(todos.items[i].description),
-                          onTap: () {},
-                        ),
+                        itemBuilder: (ctx, i) {
+                          final item = todos.items[i];
+                          return ListTile(
+                            leading: CircleAvatar(
+                              child: Text(item.streak == null
+                                  ? '0'
+                                  : item.streak.toString()),
+                              // backgroundImage: FileImage(todos.items[i].image),
+                            ),
+                            title: Text(item.title),
+                            subtitle: item.description == ''
+                                ? null
+                                : Text('item.description ${item.lastTime}'),
+                            trailing: IconButton(
+                              icon: Icon(Icons.check_circle_outline),
+                              tooltip: 'I did it today',
+                              onPressed: () {
+                                item.lastTime = DateTime.now(); // FIX IT!
+                              },
+                              color: item.lastTime != null &&
+                                      item.lastTime
+                                              .difference(DateTime.now())
+                                              .inDays <
+                                          1
+                                  ? Colors.green
+                                  : Colors.grey,
+                              iconSize: 36,
+                            ),
+                            onTap: () {},
+                          );
+                        },
                       ),
               ),
       ),
