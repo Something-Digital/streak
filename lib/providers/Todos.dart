@@ -22,7 +22,6 @@ class Todos with ChangeNotifier {
       id: DateTime.now().toString(),
       title: title,
       description: description,
-      streak: streak,
     );
     _items.add(newTodo);
     notifyListeners();
@@ -33,6 +32,7 @@ class Todos with ChangeNotifier {
         'title': newTodo.title,
         'description': newTodo.description,
         'streak': newTodo.streak,
+        'lastActionTime': newTodo.lastActionTime,
       },
     );
   }

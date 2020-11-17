@@ -46,15 +46,16 @@ class TodosListPage extends StatelessWidget {
                             title: Text(item.title),
                             subtitle: item.description == ''
                                 ? null
-                                : Text('item.description ${item.lastTime}'),
+                                : Text(
+                                    'item.description ${item.lastActionTime}'),
                             trailing: IconButton(
                               icon: Icon(Icons.check_circle_outline),
                               tooltip: 'I did it today',
                               onPressed: () {
-                                item.lastTime = DateTime.now(); // FIX IT!
+                                item.lastActionTime = DateTime.now(); // FIX IT!
                               },
-                              color: item.lastTime != null &&
-                                      item.lastTime
+                              color: item.lastActionTime != null &&
+                                      item.lastActionTime
                                               .difference(DateTime.now())
                                               .inDays <
                                           1
